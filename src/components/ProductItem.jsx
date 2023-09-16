@@ -1,6 +1,6 @@
-const ProductItem = ({ product, setCart }) => {
+const ProductItem = ({ product, cart, setCart }) => {
     const addToCart = (product)=>{
-     setCart((preveState) => [...preveState,product]);
+     setCart((preveState) => [...preveState, product]);
     };
      return (
     <div className="border p-4  m-2 rounded-lg shadow-lg">
