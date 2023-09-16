@@ -1,6 +1,18 @@
 const ProductItem = ({ product, cart, setCart }) => {
-    const addToCart = (product)=>{
-     setCart((preveState) => [...preveState, product]);
+    const addToCart = (product)=>{        
+        const addFind = cart.find(item => item.id === product.id);  
+        if(addFind){
+            setCart([...cart.filter(item => item.id !== product.id),{
+                id : product.id,
+                name: product.name,
+                img : product.img,
+                price  : product.price,
+                amount : product.amount +=  1
+              }])
+        }else{
+            product.amount = 1;
+            setCart((preveState) => [...preveState, product]);
+        }
     };
      return (
     <div className="border p-4  m-2 rounded-lg shadow-lg">

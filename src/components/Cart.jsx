@@ -1,5 +1,5 @@
 const Cart = ({ cart, emptyCart }) => {
-  const total = cart.reduce((acc, item) => acc + item.price, 0);
+  const total = cart.reduce((acc, item) => acc + item.price * item.amount, 0);
 
   return (
     <div className="border ml-auto w-72 p-4 mt-2 rounded-lg shadow-lg">
@@ -8,9 +8,10 @@ const Cart = ({ cart, emptyCart }) => {
         {cart.map((item) => (
           <li key={item.id} className="mt-2 flex justify-between">
             <span>
-              {item.name} ({(cart, item.id)} adet)
+              {item.name} ({(item.amount)} adet)
             </span>
             <span>{item.price} ₺</span>
+            <span>{item.price *item.amount} ₺</span>
           </li>
         ))}
       </ul>
